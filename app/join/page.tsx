@@ -1,8 +1,12 @@
+"use client";
+
 import type { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import JoinForm from '../components/JoinForm';
 import Link from 'next/link';
 import RegistrationsClosed from '../components/RegsitrationsClosed';
+import HiringUpcoming from '../components/HiringUpcoming';
+import { getHiringState } from '@/lib/timeline';
 
 // A simple logo component for the header
 const MLSALogo = () => (
@@ -14,6 +18,12 @@ const MLSALogo = () => (
 );
 
 const JoinPage: NextPage = () => {
+  const [hiringState, setHiringState] = useState<'loading' | 'upcoming' | 'active' | 'closed'>('loading');
+
+  useEffect(() => {
+    setHiringState(getHiringState());
+  }, []);
+
   return (
     <div className="bg-slate-900 text-white min-h-screen font-sans antialiased">
       {/* This page has a simple background to ensure it loads fast after login */}
@@ -31,8 +41,12 @@ const JoinPage: NextPage = () => {
 
         <main className="flex-grow flex items-center justify-center py-12 px-4">
           <div className="max-w-4xl w-full mx-auto bg-slate-800/40 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 md:p-12">
-            {/* All the complex logic is inside this component */}
-            <RegistrationsClosed />
+            {hiringState === 'loading' && (
+              <p className="text-center text-slate-400">Loading...</p>
+            )}
+            {hiringState === 'upcoming' && <HiringUpcoming />}
+            {hiringState === 'active' && <JoinForm />}
+            {hiringState === 'closed' && <RegistrationsClosed />}
           </div>
         </main>
       </div>

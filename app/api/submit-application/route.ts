@@ -6,6 +6,8 @@ import { initializeApp, getApps, cert } from "firebase-admin/app";
 import rateLimit from "@/lib/rateLimit";
 import { z } from "zod";
 
+import { getHiringState } from "@/lib/timeline";
+
 // Rate limiter: max 5 requests per IP + email per minute
 const limiter = rateLimit({
   interval: 60 * 1000,
@@ -79,6 +81,14 @@ export async function POST(request: Request) {
     }
 
     const userEmail = session.user.email;
+
+    // Validate hiring timeline (server-side check)
+    const hiringState = getHiringState();
+    if (hiringState === 'upcoming') {
+      return NextResponse.json({ error: "Hiring has not started yet" }, { status: 400 });
+    } else if (hiringState === 'closed') {
+      return NextResponse.json({ error: "Registrations have closed" }, { status: 400 });
+    }
 
     // Rate limiting by IP + user email
     const ip =
