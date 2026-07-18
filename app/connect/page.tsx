@@ -33,7 +33,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children, activePage }) => {
 
     const navLinks = [
         { href: '/', name: 'HOME', page: 'home' },
-        { href: '/team', name: 'TEAM', page: 'team' },
+        // { href: '/team', name: 'TEAM', page: 'team' },
         { href: '/about', name: 'ABOUT US', page: 'about' },
         { href: '/connect', name: 'CONNECT WITH US', page: 'connect' },
     ];

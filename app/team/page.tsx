@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import type { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
 
 import Image from 'next/image'; 
 //...... SHARED COMPONENTS ......
@@ -121,6 +122,8 @@ const teamData = {
 //.....TEAM PAGE ......
 
 const TeamPage: NextPage = () => {
+  redirect('/');
+
   useEffect(() => {
     document.title = 'Our Team | MLSA MIET Chapter';
   }, []);
