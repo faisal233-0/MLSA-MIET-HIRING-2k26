@@ -65,8 +65,8 @@ const RegistrationCountdown = () => {
     const [hasEnded, setHasEnded] = useState(false);
 
     useEffect(() => {
-        const startDate = new Date('2025-09-03T00:00:00');
-        const endDate = new Date('2025-09-21T23:59:59');
+        const startDate = new Date('2026-08-17T00:00:00');
+        const endDate = new Date('2026-09-05T23:59:59');
 
         const interval = setInterval(() => {
             const now = new Date();
@@ -112,7 +112,7 @@ const RegistrationCountdown = () => {
         return (
             <div className="text-center bg-slate-800/60 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 max-w-4xl mx-auto">
                 <h3 className="text-3xl font-bold text-white mb-2">Volunteer Hiring Is Coming!</h3>
-                <p className="text-slate-300 text-lg">Get ready to join us. Hiring opens on September 3rd, 2025.</p>
+                <p className="text-slate-300 text-lg">Get ready to join us. Hiring opens on Aug 17, 2026.</p>
             </div>
         );
     }
@@ -146,10 +146,10 @@ const RegistrationCountdown = () => {
 // .......... HIRING TIMELINE COMPONENT  ............
 const HiringTimeline = () => {
     const timelineEvents = [
-        { date: 'Sep 03, 2025', title: 'Applications Open', description: 'The hiring portal goes live. Submit your applications to join the team.' },
-        { date: 'Sep 21, 2025', title: 'Applications Close', description: 'Last day to submit your application. Don\'t miss out!' },
-        { date: 'Sep 25-30, 2025', title: 'Interview Rounds', description: 'Shortlisted candidates will be contacted for interviews.' },
-        { date: 'Oct 05, 2025', title: 'Results Announced', description: 'Welcome to the new members of the MLSA MIET Chapter!' },
+        { date: 'Aug 17, 2026', title: 'Applications Open', description: 'The hiring portal goes live. Submit your applications to join the team.' },
+        { date: 'Sep 5, 2026', title: 'Applications Close', description: 'Last day to submit your application. Don\'t miss out!' },
+        { date: 'Sep 13, 2026', title: 'Interview Rounds', description: 'Shortlisted candidates will be contacted for interviews.' },
+        { date: 'Sep 23, 2026', title: 'Results Announced', description: 'Welcome to the new members of the MLSA MIET Chapter!' },
     ];
 
     return (
@@ -164,12 +164,12 @@ const HiringTimeline = () => {
                 <div className="relative max-w-2xl mx-auto">
                     {/* The vertical line - always on the left for mobile-first design */}
                     <div className="absolute left-3 top-1 h-full w-0.5 bg-slate-700"></div>
-                    
+
                     {timelineEvents.map((event, index) => (
                         <div key={index} className="relative pl-12 pb-12">
-                             {/* The circle on the line */}
+                            {/* The circle on the line */}
                             <div className="absolute left-3 top-1 -translate-x-1/2 h-4 w-4 rounded-full bg-blue-500 ring-4 ring-slate-900 z-10"></div>
-                            
+
                             {/* Content to the right of the line */}
                             <div>
                                 <p className="text-blue-300 font-semibold mb-2">{event.date}</p>
@@ -203,7 +203,7 @@ const LandingPage: NextPage = () => {
                 <Navbar />
                 <main id="home" className="flex-grow flex flex-col pt-2 items-center text-center px-4 ">
                     <div className="mb-4">
-                         <MLSALogo width={200} height={200} className="w-40 h-40 sm:w-60 sm:h-60" />
+                        <MLSALogo width={200} height={200} className="w-40 h-40 sm:w-60 sm:h-60" />
                     </div>
                     <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
                         <span>Microsoft Learn</span>
