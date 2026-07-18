@@ -55,6 +55,16 @@ const past: Event[] = [
 
     },
     {
+        id: "Avsar",
+        title: "Avsar 2.0",
+        date: "September 2, 2025",
+        time: "1 day",
+        location: "Auditorium 4",
+        description: "Join us with Mr. Rohit Yadav as we dive into 'How to get into Microsoft' and unlock pathways to your dream career.",
+        link: "https://www.linkedin.com/company/mlsa-miet/",
+        registrationType: 'link',
+    },
+    {
 
         id: "Salesforce",
 
@@ -69,23 +79,6 @@ const past: Event[] = [
         description: "Experience hands-on AI automation by building a Salesforce Agentforce customer agent with expert mentorship and guidance.",
 
         link: "https://www.commudle.com/communities/microsoft-learn-student-ambassadors-meerut-institute-of-engineering-and-technology/events/salesforce-agentforce-workshop",
-    },
-    {
-
-        id: "devgathering",
-
-        title: "Dev Gathering 2k26",
-
-        date: "June 27-28, 2026",
-
-        time: "2 days",
-
-        location: "MIET Raman Block",
-
-        description: "36-Hour flagship hackathon fostering innovation, teamwork, technical excellence, and industry collaboration through immersive hands-on challenges",
-
-        link: "https://www.devgathering2k26.xyz/",
-
     },
     {
 
@@ -105,15 +98,24 @@ const past: Event[] = [
 
     },
     {
-        id: "Avsar",
-        title: "Avsar 2.0",
-        date: "September 2, 2025",
-        time: "1 day",
-        location: "Auditorium 4",
-        description: "Join us with Mr. Rohit Yadav as we dive into 'How to get into Microsoft' and unlock pathways to your dream career.",
-        link: "https://www.linkedin.com/company/mlsa-miet/",
-        registrationType: 'link',
-    }
+
+        id: "devgathering",
+
+        title: "Dev Gathering 2k26",
+
+        date: "June 27-28, 2026",
+
+        time: "2 days",
+
+        location: "MIET Raman Block",
+
+        description: "36-Hour flagship hackathon fostering innovation, teamwork, technical excellence, and industry collaboration through immersive hands-on challenges",
+
+        link: "https://www.devgathering2k26.xyz/",
+
+    },
+
+
 ];
 
 // .......... EVENT CARD COMPONENT ..........
