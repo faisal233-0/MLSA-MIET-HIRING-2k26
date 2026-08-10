@@ -21,7 +21,7 @@ const Navbar = () => {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8 font-medium">
                     <Link href="/" className={`transition-colors duration-300 ${pathname === '/' ? 'text-blue-400' : 'hover:text-blue-400'}`}>HOME</Link>
-                    {/* <Link href="/team" className={`transition-colors duration-300 ${pathname === '/team' ? 'text-blue-400' : 'hover:text-blue-400'}`}>TEAM</Link> */}
+                    <Link href="/team" className={`transition-colors duration-300 ${pathname === '/team' ? 'text-blue-400' : 'hover:text-blue-400'}`}>TEAM</Link>
                     <Link href="/events" className={`transition-colors duration-300 ${pathname === '/events' ? 'text-blue-400' : 'hover:text-blue-400'}`}>EVENTS</Link>
                     <Link href="/about" className={`transition-colors duration-300 ${pathname === '/about' ? 'text-blue-400' : 'hover:text-blue-400'}`}>ABOUT US</Link>
                     <Link href="/connect" className={`transition-colors duration-300 ${pathname === '/connect' ? 'text-blue-400' : 'hover:text-blue-400'}`}>CONNECT WITH US</Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
               <div className="md:hidden absolute top-24 left-0 w-full bg-slate-900/80 backdrop-blur-lg z-40">
              <div className="flex flex-col items-center space-y-4 py-8">
             <Link href="/" className={`text-lg font-medium transition-colors ${pathname === '/' ? 'text-blue-400' : 'hover:text-blue-400'}`}>HOME</Link>
-            {/* <Link href="/team" className={`text-lg font-medium transition-colors ${pathname === '/team' ? 'text-blue-400' : 'hover:text-blue-400'}`}>TEAM</Link> */}
+            <Link href="/team" className={`text-lg font-medium transition-colors ${pathname === '/team' ? 'text-blue-400' : 'hover:text-blue-400'}`}>TEAM</Link>
             <Link href="/events" className={`text-lg font-medium transition-colors ${pathname === '/events' ? 'text-blue-400' : 'hover:text-blue-400'}`}>EVENTS</Link>
             <Link href="/about" className={`text-lg font-medium transition-colors ${pathname === '/about' ? 'text-blue-400' : 'hover:text-blue-400'}`}>ABOUT US</Link>
             <Link href="/connect" className={`text-lg font-medium transition-colors ${pathname === '/connect' ? 'text-blue-400' : 'hover:text-blue-400'}`}>CONNECT WITH US</Link>

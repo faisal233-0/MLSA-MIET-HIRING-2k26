@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h4 className="font-bold text-lg text-white mb-4">CONTACT US:</h4>
-                    <Link href="mailto:work.kushagra25@gmail.com" className="block hover:text-blue-400 transition-colors">arjunsharma0319@gmail.com</Link>
+                    <Link href="mailto:yugj3087@gmail.com" className="block hover:text-blue-400 transition-colors">yugj3087@gmail.com</Link>
                     <Link href="mailto:mlsa.community@miet.ac.in" className="block hover:text-blue-400 transition-colors">mlsa.community@miet.ac.in</Link>
                 </div>
                 <div>
