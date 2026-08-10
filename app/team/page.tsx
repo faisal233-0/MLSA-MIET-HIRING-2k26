@@ -41,7 +41,7 @@ const TeamCard = ({ name, role, imageUrl, linkedinUrl }: { name: string, role: s
                 {/* Top card - always visible */}
                 <div className={`relative w-full h-full bg-white rounded-lg p-4 transition-transform duration-500 ease-in-out group-hover:-translate-y-4 shadow-xl overflow-hidden ${isActive ? '-translate-y-4' : ''}`}>
                     <Image
-                        src={imageUrl}
+                        src={imageUrl || "/mlsa-logo.png"}
                         alt={name}
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -86,37 +86,37 @@ const TeamSection = ({ title, members }: { title: string, members: { name: strin
 );
 const teamData = {
     'Leads': [
-        { name: 'Lead 1', role: 'Lead', imageUrl: '/Team/lead 1.png', linkedinUrl: '' },
-        { name: 'Lead 2', role: 'Lead', imageUrl: '/Team/lead 2.png', linkedinUrl: '' }
+        { name: 'Lead 1', role: 'Lead', imageUrl: '/Team/lead 1.webp', linkedinUrl: '' },
+        { name: 'Lead 2', role: 'Lead', imageUrl: '/Team/lead 2.webp', linkedinUrl: '' }
     ],
     'Head of Operations': [
-        { name: 'HOO 1', role: 'Head of Operations', imageUrl: '/Team/HOO 1.png', linkedinUrl: '' },
-        { name: 'HOO 2', role: 'Head of Operations', imageUrl: '/Team/HOO 2.png', linkedinUrl: '' }
+        { name: 'HOO 1', role: 'Head of Operations', imageUrl: '/Team/HOO 1.webp', linkedinUrl: '' },
+        { name: 'HOO 2', role: 'Head of Operations', imageUrl: '/Team/HOO 2.webp', linkedinUrl: '' }
     ],
     'Tech': [
-        { name: 'Mohd Faisal', role: 'Tech Head', imageUrl: '', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
+        { name: 'Mohd Faisal', role: 'Tech Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
     ],
     'Graphics': [
-        { name: 'Tannu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.jpg', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_androidTanu Chauhan' },
-        { name: 'Arpit Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.png', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+        { name: 'Tannu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_androidTanu Chauhan' },
+        { name: 'Arpit Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.webp', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Content': [
-        { name: 'Shristi', role: 'Content Head', imageUrl: '/Team/Srishti.jpg', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_androidSrishti' },
+        { name: 'Shristi', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_androidSrishti' },
     ],
     'Visuals': [
-        { name: 'Nikunj Goel', role: 'Visuals Lead', imageUrl: '', linkedinUrl: '' },
+        { name: 'Nikunj Goel', role: 'Visuals Lead', imageUrl: '/mlsa-logo.png', linkedinUrl: '' },
     ],
     'Social': [
-        { name: 'Naina Yadav', role: 'Socials Head', imageUrl: '/Team/Naina-Yadav.jpeg', linkedinUrl: 'https://www.linkedin.com/in/naina-yadav-8307002b5/' },
+        { name: 'Naina Yadav', role: 'Socials Head', imageUrl: '/Team/naina yadav.webp', linkedinUrl: 'https://www.linkedin.com/in/naina-yadav-8307002b5/' },
     ],
     'Outreach': [
-        { name: 'Akshara Aggarwal', role: 'Outreach Head', imageUrl: '/Team/Akshara_Agarwal.jpg', linkedinUrl: 'https://www.linkedin.com/in/akshara-agarwal-147940378' },
+        { name: 'Akshara Aggarwal', role: 'Outreach Head', imageUrl: '/Team/Akshara_Agarwal.webp', linkedinUrl: 'https://www.linkedin.com/in/akshara-agarwal-147940378' },
     ],
     'Event': [
-        { name: 'Arjun', role: 'Event Head', imageUrl: '/Team/Arjun.jpg', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
+        { name: 'Arjun', role: 'Event Head', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
     ],
     'Workflow Management': [
-        { name: 'Yug Jain', role: 'Workflow Manager', imageUrl: '/Team/yug jain.jpg', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
+        { name: 'Yug Jain', role: 'Workflow Manager', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
     ],
 };
 
@@ -140,7 +140,7 @@ const TeamPage: NextPage = () => {
                     <div className="relative h-[60vh] flex items-center justify-center text-center px-4 overflow-hidden">
                         <div className="absolute inset-0 z-0">
                             <Image
-                                src="/team/team3.jpg"
+                                src="/events/samarambh.webp"
                                 alt="Team Background"
                                 fill
                                 sizes="100vw"

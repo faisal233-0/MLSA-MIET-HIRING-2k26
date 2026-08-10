@@ -12,10 +12,10 @@ import PlexusBackground from '../components/PlexusBackground';
 //ABOUT PAGE SPECIFIC COMPONENTS
 const ImageSwitcher = () => {
     const images = [
-        '/events/devgathering.jpeg',
-        '/events/prehackathon.jpeg',
-        '/events/salesforce.jpg',
-        '/events/samarambh.jpeg',
+        '/events/devgathering.webp',
+        '/events/prehackathon.webp',
+        '/events/salesforce.webp',
+        '/events/samarambh.webp',
     ];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     useEffect(() => {
