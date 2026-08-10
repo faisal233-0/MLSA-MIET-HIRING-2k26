@@ -113,7 +113,7 @@ const teamData = {
         { name: 'Akshara Aggarwal', role: 'Outreach Head', imageUrl: '/Team/Akshara_Agarwal.webp', linkedinUrl: 'https://www.linkedin.com/in/akshara-agarwal-147940378' },
     ],
     'Event': [
-        { name: 'Arjun', role: 'Event Head', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
+        { name: 'Arjun Sharma', role: 'Event Head', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
     ],
     'Workflow Management': [
         { name: 'Yug Jain', role: 'Workflow Manager', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
