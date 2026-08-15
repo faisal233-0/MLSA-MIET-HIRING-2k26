@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import CursorSpotlight from './components/CursorSpotlight';
 import PlexusBackground from './components/PlexusBackground';
 import MLSALogo from './components/MLSALogo';
+import { START_DATE_STR, END_DATE_STR } from '@/lib/timeline';
 
 // ....LANDING PAGE SPECIFIC COMPONENTS ....
 const VisionIcon = () => (
@@ -65,8 +66,8 @@ const RegistrationCountdown = () => {
     const [hasEnded, setHasEnded] = useState(false);
 
     useEffect(() => {
-        const startDate = new Date('2026-08-14T00:00:00');
-        const endDate = new Date('2026-09-05T23:59:59');
+        const startDate = new Date(START_DATE_STR);
+        const endDate = new Date(END_DATE_STR);
 
         const interval = setInterval(() => {
             const now = new Date();
@@ -112,7 +113,7 @@ const RegistrationCountdown = () => {
         return (
             <div className="text-center bg-slate-800/60 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 max-w-4xl mx-auto">
                 <h3 className="text-3xl font-bold text-white mb-2">Volunteer Hiring Is Coming!</h3>
-                <p className="text-slate-300 text-lg">Get ready to join us. Hiring opens on Aug 17, 2026.</p>
+                <p className="text-slate-300 text-lg">Get ready to join us. Hiring opens on Aug 14, 2026.</p>
             </div>
         );
     }
