@@ -23,7 +23,7 @@ export default function HiringUpcoming() {
         Hiring Opens Soon!
       </h1>
       <p className="text-slate-300 mt-4 text-lg">
-        Volunteer hiring has not started yet. Applications open on August 17th, 2026.
+        Volunteer hiring has not started yet. Applications open on August 14th, 2026.
       </p>
       <Link
         href="/"
