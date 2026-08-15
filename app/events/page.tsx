@@ -27,7 +27,7 @@ const upcoming: Event[] = [
     {
         id: "registration",
         title: "Volunteer Registrations ",
-        date: "Aug 14, 2026",
+        date: "Aug 17, 2026",
         time: "14 days",
         location: "Online",
         description: "Register now to begin your journey and join the MLSA MIET team as a volunteer.",

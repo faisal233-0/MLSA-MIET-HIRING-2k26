@@ -1,4 +1,4 @@
-export const START_DATE_STR = '2026-08-14T00:00:00';
+export const START_DATE_STR = '2026-08-17T00:00:00';
 export const END_DATE_STR = '2026-09-05T23:59:59';
 
 export const getStartDate = () => new Date(START_DATE_STR);

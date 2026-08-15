@@ -113,7 +113,7 @@ const RegistrationCountdown = () => {
         return (
             <div className="text-center bg-slate-800/60 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 max-w-4xl mx-auto">
                 <h3 className="text-3xl font-bold text-white mb-2">Volunteer Hiring Is Coming!</h3>
-                <p className="text-slate-300 text-lg">Get ready to join us. Hiring opens on Aug 14, 2026.</p>
+                <p className="text-slate-300 text-lg">Get ready to join us. Hiring opens on Aug 17, 2026.</p>
             </div>
         );
     }
@@ -147,7 +147,7 @@ const RegistrationCountdown = () => {
 // .......... HIRING TIMELINE COMPONENT  ............
 const HiringTimeline = () => {
     const timelineEvents = [
-        { date: 'Aug 14, 2026', title: 'Applications Open', description: 'The hiring portal goes live. Submit your applications to join the team.' },
+        { date: 'Aug 17, 2026', title: 'Applications Open', description: 'The hiring portal goes live. Submit your applications to join the team.' },
         { date: 'Aug 31, 2026', title: 'Applications Close', description: 'Last day to submit your application. Don\'t miss out!' },
         { date: 'Sep 7th and 8th, 2026', title: 'Interview Rounds', description: 'Shortlisted candidates will be contacted for interviews.' },
         { date: 'Sep 11, 2026', title: 'Results Announced', description: 'Welcome to the new members of the MLSA MIET Chapter!' },
