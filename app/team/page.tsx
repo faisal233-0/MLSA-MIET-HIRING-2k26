@@ -93,12 +93,12 @@ const teamData = {
         { name: 'Yug Jain', role: 'Head of Operations', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
         { name: 'Arjun Sharma', role: 'Head of Operations', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
     ],
-    'Tech': [
-        { name: 'Mohd Faisal', role: 'Tech Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
+    'Technical': [
+        { name: 'Mohd Faisal', role: 'Technical Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
     ],
     'Graphics': [
         { name: 'Tannu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
-        { name: 'Arpit Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.webp', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+        { name: 'Arpit Kumar Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.webp', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Content': [
         { name: 'Srishti', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
@@ -113,10 +113,10 @@ const teamData = {
         { name: 'Akshara Aggarwal', role: 'Outreach Head', imageUrl: '/Team/Akshara_Agarwal.webp', linkedinUrl: 'https://www.linkedin.com/in/akshara-agarwal-147940378' },
     ],
     'Event': [
-        { name: 'Event', role: 'Event Head', imageUrl: '/', linkedinUrl: '' },
+        { name: 'Arjun Sharma', role: 'Event Head', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Workflow Management': [
-        { name: 'Workflow', role: 'Workflow Manager', imageUrl: '/', linkedinUrl: '' },
+        { name: 'Saptak Gupta', role: 'Workflow Manager', imageUrl: '/Team/saptak gupta.webp', linkedinUrl: 'https://www.linkedin.com/in/saptak-gupta-a52b742a4?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
 };
 

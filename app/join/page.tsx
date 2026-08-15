@@ -8,14 +8,7 @@ import RegistrationsClosed from '../components/RegsitrationsClosed';
 import HiringUpcoming from '../components/HiringUpcoming';
 import { getHiringState } from '@/lib/timeline';
 
-// A simple logo component for the header
-const MLSALogo = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-blue-400">
-    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+import MLSALogo from '../components/MLSALogo';
 
 const JoinPage: NextPage = () => {
   const [hiringState, setHiringState] = useState<'loading' | 'upcoming' | 'active' | 'closed'>('loading');
@@ -33,7 +26,7 @@ const JoinPage: NextPage = () => {
         <header className="py-5 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 bg-slate-900/50 backdrop-blur-md border-b border-slate-800">
           <nav className="flex justify-between items-center max-w-7xl mx-auto">
             <Link href="/" className="flex items-center space-x-3 cursor-pointer">
-              <MLSALogo />
+              <MLSALogo width={50} height={50} className="w-8 h-8" />
               <span className="font-bold text-xl tracking-wide">MLSA MIET</span>
             </Link>
           </nav>

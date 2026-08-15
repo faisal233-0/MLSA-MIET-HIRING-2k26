@@ -33,7 +33,14 @@ export default function SignInButton({ isHero = false }: { isHero?: boolean }) {
 
   if (session) {
     if (isHero) {
-        return null;
+        return (
+          <Link 
+            href={isAdmin() ? "/admin" : "/join"}
+            className="inline-block text-white font-bold text-lg px-8 py-3 rounded-lg transition-all duration-300 bg-blue-600 hover:bg-blue-700 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)]"
+          >
+            {isAdmin() ? "Go to Dashboard" : "Volunteer Now"}
+          </Link>
+        );
     }
     
     return (

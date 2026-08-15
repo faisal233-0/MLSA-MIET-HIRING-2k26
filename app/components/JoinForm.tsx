@@ -62,7 +62,7 @@ export default function JoinForm() {
     "Graphic Design and Visual Content",
     "Photography and Media Coverage",
     "Content Writing and Editorial",
-    "Web Dev and Management",
+    "Technical & Web Development",
     "Video Production and Editing",
     "Social Media Strategy and Management",
     "Workflow Management",
@@ -104,6 +104,24 @@ export default function JoinForm() {
     }
   }, [session, status, router, isAdmin]);
 
+  // Gibberish detection — only for long-form text fields (motivation/contribution)
+  const detectGibberish = (text: string): string => {
+    const trimmed = text.trim();
+    if (trimmed.length < 20) return "";
+
+    // 1. Check for repeated character spam like "aaaaaaaaa"
+    if (/(.)\1{4,}/.test(trimmed)) {
+      return "Your response contains repeated characters. Please write a genuine answer.";
+    }
+
+    // 2. Check for long consonant clusters (5+ consonants in a row = likely gibberish)
+    if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(trimmed)) {
+      return "Your response doesn't appear to contain valid words. Please write a genuine answer.";
+    }
+
+    return "";
+  };
+
   // Central validation function
   const validateField = (name: keyof FormData, value: string, currentFormData: FormData): string => {
     switch (name) {
@@ -122,10 +140,14 @@ export default function JoinForm() {
         return currentFormData.firstChoice && value === currentFormData.firstChoice
           ? "Second choice must be different from the first."
           : "";
-      case "motivation":
-        return value.trim().length < 20 ? `Must be at least 20 characters. (${value.trim().length}/20)` : "";
-      case "contribution":
-        return value.trim().length < 20 ? `Must be at least 20 characters. (${value.trim().length}/20)` : "";
+      case "motivation": {
+        if (value.trim().length < 20) return `Must be at least 20 characters. (${value.trim().length}/20)`;
+        return detectGibberish(value);
+      }
+      case "contribution": {
+        if (value.trim().length < 20) return `Must be at least 20 characters. (${value.trim().length}/20)`;
+        return detectGibberish(value);
+      }
       default:
         return "";
     }

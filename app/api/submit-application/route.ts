@@ -38,6 +38,19 @@ const initializeFirebaseAdmin = () => {
 const db = initializeFirebaseAdmin();
 
 const noBracketsRegex = /^[^()\[\]{}]*$/;
+
+// Server-side gibberish detection (mirrors client-side logic)
+function isGibberish(text: string): boolean {
+  const trimmed = text.trim();
+  if (trimmed.length < 20) return false;
+
+  if (/(.)\1{4,}/.test(trimmed)) return true;
+
+  if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(trimmed)) return true;
+
+  return false;
+}
+
 // Zod schema for validation
 const applicationSchema = z.object({
   fullName: z.string().min(2),
@@ -50,11 +63,13 @@ const applicationSchema = z.object({
   motivation: z
     .string()
     .min(20)
-    .regex(noBracketsRegex, "Brackets are not allowed"),
+    .regex(noBracketsRegex, "Brackets are not allowed")
+    .refine(val => !isGibberish(val), "Please write a genuine, meaningful response"),
   contribution: z
     .string()
     .min(20)
-    .regex(noBracketsRegex, "Brackets are not allowed"),
+    .regex(noBracketsRegex, "Brackets are not allowed")
+    .refine(val => !isGibberish(val), "Please write a genuine, meaningful response"),
   additionalInfo: z
     .string()
     .regex(noBracketsRegex, "Brackets are not allowed")
