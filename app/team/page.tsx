@@ -86,25 +86,25 @@ const TeamSection = ({ title, members }: { title: string, members: { name: strin
 );
 const teamData = {
     'Leads': [
-        { name: 'Vishavadeep Pundir', role: 'Lead', imageUrl: '/Team/Vishavadeep Pundir.png', linkedinUrl: 'https://www.linkedin.com/in/vishvdeep-pundir-5a783a34b?utm_source=share_via&utm_content=profile&utm_medium=member_androidVishvdeep' },
-        { name: 'Tannu Chaudhry', role: 'Lead', imageUrl: '/Team/tanu.webp', linkedinUrl: 'https://www.linkedin.com/in/tannu-chaudhary-857348375?utm_source=share_via&utm_content=profile&utm_medium=member_androidannu' }
+        { name: 'Vishvdeep Pundir', role: 'Lead', imageUrl: '/Team/Vishvadeep.webp', linkedinUrl: 'https://www.linkedin.com/in/vishvdeep-pundir-5a783a34b?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+        { name: 'Tannu Chaudhry', role: 'Lead', imageUrl: '/Team/Tannu.webp', linkedinUrl: 'https://www.linkedin.com/in/tannu-chaudhary-857348375?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
     ],
     'Head of Operations': [
         { name: 'Yug Jain', role: 'Head of Operations', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
-        { name: 'Arjun Sharma', role: 'Head of Operations', imageUrl: '/Team/arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' }
+        { name: 'Arjun Sharma', role: 'Head of Operations', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
     ],
     'Tech': [
         { name: 'Mohd Faisal', role: 'Tech Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
     ],
     'Graphics': [
-        { name: 'Tannu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_androidTanu Chauhan' },
+        { name: 'Tannu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
         { name: 'Arpit Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.webp', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Content': [
-        { name: 'Shristi', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_androidSrishti' },
+        { name: 'Shristi', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Visuals': [
-        { name: 'Arihant Jain', role: 'Visuals Lead', imageUrl: '/Team/arihant jain.webp', linkedinUrl: 'https://www.linkedin.com/in/arihant-jain-a31a86374?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
+        { name: 'Arihant Jain', role: 'Visuals Lead', imageUrl: '/Team/arihant.webp', linkedinUrl: 'https://www.linkedin.com/in/arihant-jain-a31a86374?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
     ],
     'Social': [
         { name: 'Naina Yadav', role: 'Socials Head', imageUrl: '/Team/naina yadav.webp', linkedinUrl: 'https://www.linkedin.com/in/naina-yadav-8307002b5/' },
@@ -113,10 +113,10 @@ const teamData = {
         { name: 'Akshara Aggarwal', role: 'Outreach Head', imageUrl: '/Team/Akshara_Agarwal.webp', linkedinUrl: 'https://www.linkedin.com/in/akshara-agarwal-147940378' },
     ],
     'Event': [
-        { name: 'Event', role: 'Event Head', imageUrl: '/', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
+        { name: 'Event', role: 'Event Head', imageUrl: '/', linkedinUrl: '' },
     ],
     'Workflow Management': [
-        { name: 'Workflow', role: 'Workflow Manager', imageUrl: '/', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
+        { name: 'Workflow', role: 'Workflow Manager', imageUrl: '/', linkedinUrl: '' },
     ],
 };
 
