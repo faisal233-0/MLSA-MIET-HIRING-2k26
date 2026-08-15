@@ -86,12 +86,12 @@ const TeamSection = ({ title, members }: { title: string, members: { name: strin
 );
 const teamData = {
     'Leads': [
-        { name: 'Lead 1', role: 'Lead', imageUrl: '/Team/lead 1.webp', linkedinUrl: '' },
-        { name: 'Lead 2', role: 'Lead', imageUrl: '/Team/lead 2.webp', linkedinUrl: '' }
+        { name: 'Vishavadeep Pundir', role: 'Lead', imageUrl: '/Team/Vishavadeep Pundir.png', linkedinUrl: 'https://www.linkedin.com/in/vishvdeep-pundir-5a783a34b?utm_source=share_via&utm_content=profile&utm_medium=member_androidVishvdeep' },
+        { name: 'Tannu Chaudhry', role: 'Lead', imageUrl: '/Team/tanu.webp', linkedinUrl: 'https://www.linkedin.com/in/tannu-chaudhary-857348375?utm_source=share_via&utm_content=profile&utm_medium=member_androidannu' }
     ],
     'Head of Operations': [
-        { name: 'HOO 1', role: 'Head of Operations', imageUrl: '/Team/HOO 1.webp', linkedinUrl: '' },
-        { name: 'HOO 2', role: 'Head of Operations', imageUrl: '/Team/HOO 2.webp', linkedinUrl: '' }
+        { name: 'Yug Jain', role: 'Head of Operations', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
+        { name: 'Arjun Sharma', role: 'Head of Operations', imageUrl: '/Team/arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' }
     ],
     'Tech': [
         { name: 'Mohd Faisal', role: 'Tech Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
@@ -104,7 +104,7 @@ const teamData = {
         { name: 'Shristi', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_androidSrishti' },
     ],
     'Visuals': [
-        { name: 'Nikunj Goel', role: 'Visuals Lead', imageUrl: '/mlsa-logo.png', linkedinUrl: '' },
+        { name: 'Arihant Jain', role: 'Visuals Lead', imageUrl: '/Team/arihant jain.webp', linkedinUrl: 'https://www.linkedin.com/in/arihant-jain-a31a86374?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
     ],
     'Social': [
         { name: 'Naina Yadav', role: 'Socials Head', imageUrl: '/Team/naina yadav.webp', linkedinUrl: 'https://www.linkedin.com/in/naina-yadav-8307002b5/' },
@@ -113,10 +113,10 @@ const teamData = {
         { name: 'Akshara Aggarwal', role: 'Outreach Head', imageUrl: '/Team/Akshara_Agarwal.webp', linkedinUrl: 'https://www.linkedin.com/in/akshara-agarwal-147940378' },
     ],
     'Event': [
-        { name: 'Arjun Sharma', role: 'Event Head', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
+        { name: 'Event', role: 'Event Head', imageUrl: '/', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android arjun' },
     ],
     'Workflow Management': [
-        { name: 'Yug Jain', role: 'Workflow Manager', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
+        { name: 'Workflow', role: 'Workflow Manager', imageUrl: '/', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
     ],
 };
 
@@ -151,7 +151,7 @@ const TeamPage: NextPage = () => {
                         </div>
                         <div className="relative z-10">
                             <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white" style={{ textShadow: '0 4px 20px rgba(59, 130, 246, 0.5)' }}>
-                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Tech Avengers</span> of MLSA MIET
+                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"> Avengers</span> of MLSA MIET
                             </h1>
                         </div>
                     </div>
