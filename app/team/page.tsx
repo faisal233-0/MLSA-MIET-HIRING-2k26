@@ -101,7 +101,7 @@ const teamData = {
         { name: 'Arpit Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.webp', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Content': [
-        { name: 'Shristi', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+        { name: 'Srishti', role: 'Content Head', imageUrl: '/Team/Srishti.webp', linkedinUrl: 'https://www.linkedin.com/in/srishti4125?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Visuals': [
         { name: 'Arihant Jain', role: 'Visuals Lead', imageUrl: '/Team/arihant.webp', linkedinUrl: 'https://www.linkedin.com/in/arihant-jain-a31a86374?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
