@@ -114,7 +114,15 @@ const past: Event[] = [
         link: "https://www.devgathering2k26.xyz/",
 
     },
-
+    {
+        id: "Avsar3",
+        title: "Avsar 3.0",
+        date: "August 14, 2025",
+        time: "1:30 PM to 3:30 PM",
+        location: "MIET Raman Block",
+        description: " Meet Uday Sharma at AVSAR 3.O — where technology, influence, innovation, and endless opportunities come together.",
+        link: "https://www.commudle.com/communities/microsoft-learn-student-ambassadors-meerut-institute-of-engineering-and-technology/events/avsar-3-o-orientation-session",
+    },
 
 ];
 
