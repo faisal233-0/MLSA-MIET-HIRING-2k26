@@ -39,7 +39,7 @@ export default function JoinForm() {
   const [submissionStatus, setSubmissionStatus] = useState<
     "loading" | "submitted" | "not_submitted"
   >("loading");
-  
+
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
@@ -55,7 +55,7 @@ export default function JoinForm() {
 
   // State to hold validation errors
   const [errors, setErrors] = useState<FormErrors>({});
-  
+
   const domainOptions = [
     "Event Planning and Coordination",
     "Public Relation and Outreach",
@@ -107,14 +107,27 @@ export default function JoinForm() {
   // Central validation function
   const validateField = (name: keyof FormData, value: string, currentFormData: FormData): string => {
     switch (name) {
+      case "fullName":
+        return value.trim().length < 2 ? "Full name must be at least 2 characters." : "";
       case "phoneNumber":
         return /^[0-9]{10}$/.test(value) ? "" : "Phone number must be exactly 10 digits.";
+      case "year":
+        return value === "" ? "Please select your year of study." : "";
+      case "branch":
+        return value.trim().length < 2 ? "Branch must be at least 2 characters." : "";
+      case "firstChoice":
+        return value === "" ? "Please select a domain." : "";
       case "secondChoice":
+        if (value === "") return "Please select a domain.";
         return currentFormData.firstChoice && value === currentFormData.firstChoice
           ? "Second choice must be different from the first."
           : "";
+      case "motivation":
+        return value.trim().length < 20 ? `Must be at least 20 characters. (${value.trim().length}/20)` : "";
+      case "contribution":
+        return value.trim().length < 20 ? `Must be at least 20 characters. (${value.trim().length}/20)` : "";
       default:
-        return ""; // No validation for other fields
+        return "";
     }
   };
 
@@ -125,7 +138,7 @@ export default function JoinForm() {
     >
   ) => {
     const { name, value } = e.target as { name: keyof FormData, value: string };
-    
+
     // Update form data first
     const updatedFormData = { ...formData, [name]: value };
     setFormData(updatedFormData);
@@ -140,12 +153,12 @@ export default function JoinForm() {
 
     // Validate all fields before submitting
     const validationErrors = Object.keys(formData).reduce((acc, key) => {
-        const fieldName = key as keyof FormData;
-        const error = validateField(fieldName, formData[fieldName], formData);
-        if (error) {
-            acc[fieldName] = error;
-        }
-        return acc;
+      const fieldName = key as keyof FormData;
+      const error = validateField(fieldName, formData[fieldName], formData);
+      if (error) {
+        acc[fieldName] = error;
+      }
+      return acc;
     }, {} as FormErrors);
 
 
@@ -154,7 +167,7 @@ export default function JoinForm() {
       alert("Please correct the errors before submitting.");
       return;
     }
-    
+
     // Clear errors on successful validation before proceeding
     setErrors({});
 
@@ -177,7 +190,7 @@ export default function JoinForm() {
         const errorData = await response.json();
         throw new Error(errorData.error || "Network response was not ok");
       }
-      
+
       setSubmissionStatus("submitted");
     } catch (error) {
       console.error("Failed to submit form:", error);
@@ -264,8 +277,9 @@ export default function JoinForm() {
               value={formData.fullName}
               onChange={handleChange}
               required
-              className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.fullName ? 'border-red-500' : 'border-slate-700'}`}
             />
+            {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
@@ -298,137 +312,140 @@ export default function JoinForm() {
             pattern="[0-9]{10}"
             className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.phoneNumber ? 'border-red-500' : 'border-slate-700'}`}
           />
-            {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
+          {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
         </div>
 
         {/* Year & Branch */}
         <div className="grid md:grid-cols-2 gap-6">
-            <div>
-                 <label htmlFor="year" className="block text-sm font-medium text-slate-300 mb-2">
-                    4. Year of Study
-                </label>
-                <select
-                    name="year"
-                    id="year"
-                    value={formData.year}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                >
-                    <option value="">Select Year</option>
-                    <option value="1">1st Year</option>
-                    <option value="2">2nd Year</option>
-                    <option value="3">3rd Year</option>
-                    <option value="4">4th Year</option>
-                </select>
-            </div>
-            <div>
-                 <label htmlFor="branch" className="block text-sm font-medium text-slate-300 mb-2">
-                    5. Branch
-                </label>
-                <input
-                    type="text"
-                    name="branch"
-                    id="branch"
-                    value={formData.branch}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-            </div>
+          <div>
+            <label htmlFor="year" className="block text-sm font-medium text-slate-300 mb-2">
+              4. Year of Study
+            </label>
+            <select
+              name="year"
+              id="year"
+              value={formData.year}
+              onChange={handleChange}
+              required
+              className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.year ? 'border-red-500' : 'border-slate-700'}`}
+            >
+              <option value="">Select Year</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+            {errors.year && <p className="text-red-500 text-sm mt-1">{errors.year}</p>}
+          </div>
+          <div>
+            <label htmlFor="branch" className="block text-sm font-medium text-slate-300 mb-2">
+              5. Branch
+            </label>
+            <input
+              type="text"
+              name="branch"
+              id="branch"
+              value={formData.branch}
+              onChange={handleChange}
+              required
+              className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.branch ? 'border-red-500' : 'border-slate-700'}`}
+            />
+            {errors.branch && <p className="text-red-500 text-sm mt-1">{errors.branch}</p>}
+          </div>
         </div>
 
         {/* Domain Choices */}
         <div className="grid md:grid-cols-2 gap-6">
-            <div>
-                <label htmlFor="firstChoice" className="block text-sm font-medium text-slate-300 mb-2">
-                    6. First Choice - Which domain you want to join?
-                </label>
-                <select
-                    name="firstChoice"
-                    id="firstChoice"
-                    value={formData.firstChoice}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                >
-                    <option value="">Select Domain</option>
-                    {domainOptions.map((opt) => (<option key={opt} value={opt}>{opt}</option>))}
-                </select>
-            </div>
-            <div>
-                <label htmlFor="secondChoice" className="block text-sm font-medium text-slate-300 mb-2">
-                    7. Second Choice - Which domain you want to join?
-                </label>
-                <select
-                    name="secondChoice"
-                    id="secondChoice"
-                    value={formData.secondChoice}
-                    onChange={handleChange}
-                    required
-                    className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.secondChoice ? 'border-red-500' : 'border-slate-700'}`}
-                >
-                    <option value="">Select Domain</option>
-                    {domainOptions.map((opt) => (<option key={opt} value={opt}>{opt}</option>))}
-                </select>
-                {errors.secondChoice && <p className="text-red-500 text-sm mt-1">{errors.secondChoice}</p>}
-            </div>
+          <div>
+            <label htmlFor="firstChoice" className="block text-sm font-medium text-slate-300 mb-2">
+              6. First Choice - Which domain you want to join?
+            </label>
+            <select
+              name="firstChoice"
+              id="firstChoice"
+              value={formData.firstChoice}
+              onChange={handleChange}
+              required
+              className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.firstChoice ? 'border-red-500' : 'border-slate-700'}`}
+            >
+              <option value="">Select Domain</option>
+              {domainOptions.map((opt) => (<option key={opt} value={opt}>{opt}</option>))}
+            </select>
+            {errors.firstChoice && <p className="text-red-500 text-sm mt-1">{errors.firstChoice}</p>}
+          </div>
+          <div>
+            <label htmlFor="secondChoice" className="block text-sm font-medium text-slate-300 mb-2">
+              7. Second Choice - Which domain you want to join?
+            </label>
+            <select
+              name="secondChoice"
+              id="secondChoice"
+              value={formData.secondChoice}
+              onChange={handleChange}
+              required
+              className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.secondChoice ? 'border-red-500' : 'border-slate-700'}`}
+            >
+              <option value="">Select Domain</option>
+              {domainOptions.map((opt) => (<option key={opt} value={opt}>{opt}</option>))}
+            </select>
+            {errors.secondChoice && <p className="text-red-500 text-sm mt-1">{errors.secondChoice}</p>}
+          </div>
         </div>
-        
+
         {/* ... Rest of your form fields ... */}
         {/* Motivation Textarea */}
         <div>
-            <label htmlFor="motivation" className="block text-sm font-medium text-slate-300 mb-2">
-                8. What motivated you to volunteer...?
-            </label>
-            <textarea
-                name="motivation"
-                id="motivation"
-                rows={4}
-                value={formData.motivation}
-                onChange={handleChange}
-                required
-                // MODIFIED: Added conditional styling for the border
-                className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.motivation ? 'border-red-500' : 'border-slate-700'}`}
-            ></textarea>
-            {errors.motivation && <p className="text-red-500 text-sm mt-1">{errors.motivation}</p>}
+          <label htmlFor="motivation" className="block text-sm font-medium text-slate-300 mb-2">
+            8. What motivated you to volunteer...?
+          </label>
+          <textarea
+            name="motivation"
+            id="motivation"
+            rows={4}
+            value={formData.motivation}
+            onChange={handleChange}
+            required
+            // MODIFIED: Added conditional styling for the border
+            className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.motivation ? 'border-red-500' : 'border-slate-700'}`}
+          ></textarea>
+          {errors.motivation && <p className="text-red-500 text-sm mt-1">{errors.motivation}</p>}
         </div>
-  {/* Contribution Textarea */}
+        {/* Contribution Textarea */}
         <div>
-            <label htmlFor="contribution" className="block text-sm font-medium text-slate-300 mb-2">
-                9. In what ways do you see yourself contributing...?
-            </label>
-            <textarea
-                name="contribution"
-                id="contribution"
-                rows={4}
-                value={formData.contribution}
-                onChange={handleChange}
-                required
-                // MODIFIED: Added conditional styling for the border
-                className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.contribution ? 'border-red-500' : 'border-slate-700'}`}
-            ></textarea>
+          <label htmlFor="contribution" className="block text-sm font-medium text-slate-300 mb-2">
+            9. In what ways do you see yourself contributing...?
+          </label>
+          <textarea
+            name="contribution"
+            id="contribution"
+            rows={4}
+            value={formData.contribution}
+            onChange={handleChange}
+            required
+            // MODIFIED: Added conditional styling for the border
+            className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.contribution ? 'border-red-500' : 'border-slate-700'}`}
+          ></textarea>
 
-            {/* ADD THIS LINE: To display the error message */}
-            {errors.contribution && <p className="text-red-500 text-sm mt-1">{errors.contribution}</p>}
+          {/* ADD THIS LINE: To display the error message */}
+          {errors.contribution && <p className="text-red-500 text-sm mt-1">{errors.contribution}</p>}
         </div>
 
         {/* Additional Info Textarea */}
         <div>
-            <label htmlFor="additionalInfo" className="block text-sm font-medium text-slate-300 mb-2">
-                10. Any additional information you would like to share.
-            </label>
-            <textarea
-                name="additionalInfo"
-                id="additionalInfo"
-                rows={4}
-                value={formData.additionalInfo}
-                onChange={handleChange}
-                className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            ></textarea>
-             <h2 className="text-sm text-slate-400 text-left italic mt-2">
-                 Note: Feel free to share your resume, portfolio, project links, designs or any other work samples that can help us assess your skills and suitability for the domain you have selected.
-             </h2>
+          <label htmlFor="additionalInfo" className="block text-sm font-medium text-slate-300 mb-2">
+            10. Any additional information you would like to share.
+          </label>
+          <textarea
+            name="additionalInfo"
+            id="additionalInfo"
+            rows={4}
+            value={formData.additionalInfo}
+            onChange={handleChange}
+            className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          ></textarea>
+          <h2 className="text-sm text-slate-400 text-left italic mt-2">
+            Note: Feel free to share your resume, portfolio, project links, designs or any other work samples that can help us assess your skills and suitability for the domain you have selected.
+          </h2>
         </div>
 
         <div className="text-center pt-4">

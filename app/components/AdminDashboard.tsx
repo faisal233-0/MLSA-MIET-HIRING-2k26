@@ -88,11 +88,11 @@ export default function AdminDashboard() {
                 }
                 const data = await res.json();
                 setSubmissions(data);
-            }  catch (err) {
-                 if (err instanceof Error) {
-                 setError(err.message);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(err.message);
                 } else {
-                 setError('An unexpected error occurred.');
+                    setError('An unexpected error occurred.');
                 }
             } finally {
                 setIsLoading(false);
@@ -113,10 +113,10 @@ export default function AdminDashboard() {
     };
     //  calculation for filtering and sorting the submissions list
     const sortedAndFilteredSubmissions = useMemo(() => submissions
-        .filter(sub => 
+        .filter(sub =>
             sub.fullName.toLowerCase().includes(searchTerm.toLowerCase())
         )
-        .filter(sub => 
+        .filter(sub =>
             filterDomain ? sub.firstChoice === filterDomain || sub.secondChoice === filterDomain : true
         )
         .sort((a, b) => {
@@ -128,21 +128,21 @@ export default function AdminDashboard() {
     );
     const domainOptions = [
         "Event Planning and Coordination", "Public Relation and Outreach", "Graphic Design and Visual Content",
-        "Photography and Media Coverage", "Content Writing and Editorial", "Web Dev and Management",
-        "Video Production and Editing", "Social Media Strategy and Management" , "Workflow Management"
+        "Photography and Media Coverage", "Content Writing and Editorial", "Technical & Web Development",
+        "Video Production and Editing", "Social Media Strategy and Management", "Workflow Management"
     ];
     if (status === "loading") {
         return <p className="flex items-center justify-center min-h-screen text-slate-400">Loading Session...</p>
     }
     if (status === "unauthenticated") {
         return (
-             <div className="flex flex-col items-center justify-center min-h-screen text-center p-4">
-                 <h1 className="text-4xl font-bold mb-4">Access Denied</h1>
-                 <p className="text-xl text-slate-400 mb-8">You must be signed in to view this page.</p>
-                 <button onClick={() => signIn('google')} className="bg-blue-600 text-white font-bold text-lg px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                     Sign In with Google
-                 </button>
-             </div>
+            <div className="flex flex-col items-center justify-center min-h-screen text-center p-4">
+                <h1 className="text-4xl font-bold mb-4">Access Denied</h1>
+                <p className="text-xl text-slate-400 mb-8">You must be signed in to view this page.</p>
+                <button onClick={() => signIn('google')} className="bg-blue-600 text-white font-bold text-lg px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Sign In with Google
+                </button>
+            </div>
         );
     }
     if (!isAdmin()) {
@@ -168,13 +168,13 @@ export default function AdminDashboard() {
                     <h3 className="text-slate-400 text-lg">Filtered Results</h3>
                     <p className="text-4xl font-bold text-white">{sortedAndFilteredSubmissions.length}</p>
                 </div>
-                 <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700 rounded-2xl p-6">
+                <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700 rounded-2xl p-6">
                     <h3 className="text-slate-400 text-lg">Admins</h3>
                     <p className="text-4xl font-bold text-white">{process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',').length || 0}</p>
                 </div>
             </div>
             <div className="bg-slate-800/40 p-4 rounded-2xl mb-8 flex flex-col md:flex-row gap-4 items-center">
-                <input 
+                <input
                     type="text"
                     placeholder="Search by name..."
                     value={searchTerm}
@@ -182,7 +182,7 @@ export default function AdminDashboard() {
                     className="w-full md:w-auto flex-grow bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
 
                 />
-                <select 
+                <select
                     value={filterDomain}
                     onChange={(e) => setFilterDomain(e.target.value)}
                     className="w-full md:w-auto flex-grow bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
@@ -202,46 +202,46 @@ export default function AdminDashboard() {
             </div>
             <div className="overflow-x-auto bg-slate-800/40 rounded-2xl border border-slate-700">
                 {isLoading ? <p className="p-8 text-center">Loading submissions...</p> :
-                 error ? <p className="p-8 text-center text-red-500">{error}</p> :
-                 sortedAndFilteredSubmissions.length === 0 ? <p className="p-8 text-center">No submissions found.</p> :
-                (
-                    <table className="w-full text-left">
-                        <thead className="bg-slate-900/50">
-                            <tr>
-                                <th className="p-4 font-semibold">S.No.</th>
-                                <th className="p-4 font-semibold">Name</th>
-                                <th className="p-4 font-semibold hidden sm:table-cell">Email</th>
-                                <th className="p-4 font-semibold hidden md:table-cell">Year</th>
-                                <th className="p-4 font-semibold">First Choice</th>
-                                <th className="p-4 font-semibold">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {sortedAndFilteredSubmissions.map((sub, index) => (
-                                <tr key={sub.id} className="border-t border-slate-700 hover:bg-slate-800/70 transition-colors">
-                                    <td className="p-4 text-slate-400">{index + 1}</td>
-                                    <td className="p-4 font-medium">{sub.fullName}</td>
-                                    <td className="p-4 hidden sm:table-cell text-slate-400">{sub.email}</td>
-                                    <td className="p-4 hidden md:table-cell text-slate-400">{sub.year}</td>
-                                    <td className="p-4 text-slate-300">{sub.firstChoice}</td>
-                                    <td className="p-4">
-                                        <button 
-                                            onClick={() => setSelectedSubmission(sub)} 
-                                            className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]"
-                                        >
-                                            View Details
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
+                    error ? <p className="p-8 text-center text-red-500">{error}</p> :
+                        sortedAndFilteredSubmissions.length === 0 ? <p className="p-8 text-center">No submissions found.</p> :
+                            (
+                                <table className="w-full text-left">
+                                    <thead className="bg-slate-900/50">
+                                        <tr>
+                                            <th className="p-4 font-semibold">S.No.</th>
+                                            <th className="p-4 font-semibold">Name</th>
+                                            <th className="p-4 font-semibold hidden sm:table-cell">Email</th>
+                                            <th className="p-4 font-semibold hidden md:table-cell">Year</th>
+                                            <th className="p-4 font-semibold">First Choice</th>
+                                            <th className="p-4 font-semibold">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {sortedAndFilteredSubmissions.map((sub, index) => (
+                                            <tr key={sub.id} className="border-t border-slate-700 hover:bg-slate-800/70 transition-colors">
+                                                <td className="p-4 text-slate-400">{index + 1}</td>
+                                                <td className="p-4 font-medium">{sub.fullName}</td>
+                                                <td className="p-4 hidden sm:table-cell text-slate-400">{sub.email}</td>
+                                                <td className="p-4 hidden md:table-cell text-slate-400">{sub.year}</td>
+                                                <td className="p-4 text-slate-300">{sub.firstChoice}</td>
+                                                <td className="p-4">
+                                                    <button
+                                                        onClick={() => setSelectedSubmission(sub)}
+                                                        className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]"
+                                                    >
+                                                        View Details
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            )}
             </div>
             {selectedSubmission && (
-                <SubmissionModal 
-                    submission={selectedSubmission} 
-                    onClose={() => setSelectedSubmission(null)} 
+                <SubmissionModal
+                    submission={selectedSubmission}
+                    onClose={() => setSelectedSubmission(null)}
                 />
             )}
         </div>
