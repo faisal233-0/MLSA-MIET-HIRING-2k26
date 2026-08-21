@@ -131,8 +131,6 @@ export default function JoinForm() {
         return /^[0-9]{10}$/.test(value) ? "" : "Phone number must be exactly 10 digits.";
       case "year":
         return value === "" ? "Please select your year of study." : "";
-      case "branch":
-        return value.trim().length < 2 ? "Branch must be at least 2 characters." : "";
       case "firstChoice":
         return value === "" ? "Please select a domain." : "";
       case "secondChoice":
@@ -140,14 +138,6 @@ export default function JoinForm() {
         return currentFormData.firstChoice && value === currentFormData.firstChoice
           ? "Second choice must be different from the first."
           : "";
-      case "motivation": {
-        if (value.trim().length < 20) return `Must be at least 20 characters. (${value.trim().length}/20)`;
-        return detectGibberish(value);
-      }
-      case "contribution": {
-        if (value.trim().length < 20) return `Must be at least 20 characters. (${value.trim().length}/20)`;
-        return detectGibberish(value);
-      }
       default:
         return "";
     }
@@ -370,9 +360,8 @@ export default function JoinForm() {
               value={formData.branch}
               onChange={handleChange}
               required
-              className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.branch ? 'border-red-500' : 'border-slate-700'}`}
+              className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
-            {errors.branch && <p className="text-red-500 text-sm mt-1">{errors.branch}</p>}
           </div>
         </div>
 
@@ -427,10 +416,8 @@ export default function JoinForm() {
             value={formData.motivation}
             onChange={handleChange}
             required
-            // MODIFIED: Added conditional styling for the border
-            className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.motivation ? 'border-red-500' : 'border-slate-700'}`}
+            className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           ></textarea>
-          {errors.motivation && <p className="text-red-500 text-sm mt-1">{errors.motivation}</p>}
         </div>
         {/* Contribution Textarea */}
         <div>
@@ -444,12 +431,8 @@ export default function JoinForm() {
             value={formData.contribution}
             onChange={handleChange}
             required
-            // MODIFIED: Added conditional styling for the border
-            className={`w-full bg-slate-900/50 border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${errors.contribution ? 'border-red-500' : 'border-slate-700'}`}
+            className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           ></textarea>
-
-          {/* ADD THIS LINE: To display the error message */}
-          {errors.contribution && <p className="text-red-500 text-sm mt-1">{errors.contribution}</p>}
         </div>
 
         {/* Additional Info Textarea */}
