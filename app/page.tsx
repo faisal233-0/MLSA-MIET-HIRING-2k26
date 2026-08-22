@@ -149,8 +149,8 @@ const HiringTimeline = () => {
     const timelineEvents = [
         { date: 'Aug 17, 2026', title: 'Applications Open', description: 'The hiring portal goes live. Submit your applications to join the team.' },
         { date: 'Aug 31, 2026', title: 'Applications Close', description: 'Last day to submit your application. Don\'t miss out!' },
-        { date: 'Sep 7th and 8th, 2026', title: 'Interview Rounds', description: 'Shortlisted candidates will be contacted for interviews.' },
-        { date: 'Sep 11, 2026', title: 'Results Announced', description: 'Welcome to the new members of the MLSA MIET Chapter!' },
+        { date: 'Sep 9th and 10th, 2026', title: ' Rounds', description: 'Shortlisted candidates will be contacted for interviews.' },
+        { date: 'Sep 12, 2026', title: 'Results Announced', description: 'Welcome to the new members of the MLSA MIET Chapter!' },
     ];
 
     return (
