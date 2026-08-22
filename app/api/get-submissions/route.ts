@@ -64,9 +64,14 @@ export async function GET() {
 
   const session = await getServerSession(authOptions);
   const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") || [];
+  const tempEmails = process.env.NEXT_PUBLIC_TEMPNAME?.split(",") || [];
 
-  // Security check — must be logged in AND an admin
-  if (!session || !session.user?.email || !adminEmails.includes(session.user.email)) {
+  // Security check — must be logged in AND (an admin OR a temp reviewer)
+  if (
+    !session ||
+    !session.user?.email ||
+    (!adminEmails.includes(session.user.email) && !tempEmails.includes(session.user.email))
+  ) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
