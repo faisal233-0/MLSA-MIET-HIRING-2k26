@@ -10,9 +10,7 @@ export default function SignInButton({ isHero = false }: { isHero?: boolean }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isAdmin = () => {
-    if (!session || !session.user?.email) return false;
-    const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
-    return adminEmails.includes(session.user.email);
+    return session?.user?.isAdmin === true;
   };
 
   useEffect(() => {

@@ -105,12 +105,9 @@ export default function AdminDashboard() {
             setIsLoading(false);
         }
     }, [status]);
-    // Check if the signed-in user's email is in the admin list or temporary list from environment variables
+    // Check if the signed-in user is an admin via NextAuth session
     const isAdmin = () => {
-        if (!session || !session.user?.email) return false;
-        const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
-        const tempEmails = process.env.NEXT_PUBLIC_TEMPNAME?.split(',') || [];
-        return adminEmails.includes(session.user.email) || tempEmails.includes(session.user.email);
+        return session?.user?.isAdmin === true;
     };
     //  calculation for filtering and sorting the submissions list
     const sortedAndFilteredSubmissions = useMemo(() => submissions
@@ -172,8 +169,8 @@ export default function AdminDashboard() {
                 <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700 rounded-2xl p-6">
                     <h3 className="text-slate-400 text-lg">Admins</h3>
                     <p className="text-4xl font-bold text-white">
-                        {(process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',').filter(Boolean).length || 0) + 
-                         (process.env.NEXT_PUBLIC_TEMPNAME?.split(',').filter(Boolean).length || 0)}
+                        {(process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',').filter(Boolean).length || 0) +
+                            (process.env.NEXT_PUBLIC_TEMPNAME?.split(',').filter(Boolean).length || 0)}
                     </p>
                 </div>
             </div>
