@@ -37,8 +37,6 @@ const initializeFirebaseAdmin = () => {
 
 const db = initializeFirebaseAdmin();
 
-const noBracketsRegex = /^[^()\[\]{}]*$/;
-
 // Server-side gibberish detection (mirrors client-side logic)
 function isGibberish(text: string): boolean {
   const trimmed = text.trim();
@@ -63,16 +61,13 @@ const applicationSchema = z.object({
   motivation: z
     .string()
     .min(20)
-    .regex(noBracketsRegex, "Brackets are not allowed")
     .refine(val => !isGibberish(val), "Please write a genuine, meaningful response"),
   contribution: z
     .string()
     .min(20)
-    .regex(noBracketsRegex, "Brackets are not allowed")
     .refine(val => !isGibberish(val), "Please write a genuine, meaningful response"),
   additionalInfo: z
     .string()
-    .regex(noBracketsRegex, "Brackets are not allowed")
     .optional(),
   recaptchaToken: z.string().min(1),
 });
