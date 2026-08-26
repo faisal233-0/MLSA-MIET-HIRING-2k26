@@ -214,7 +214,7 @@ const LandingPage: NextPage = () => {
                         MIET Chapter
                     </h2>
                     <p className="mt-8 max-w-2xl text-lg text-slate-400">
-                        A passionate community of student leaders dedicated for helping peers and building solutions for a better tomorrow.
+                        A passionate community of student leaders dedicated to helping peers and building solutions for a better tomorrow.
                     </p>
                     <div className="mt-12">
                         <SignInButton isHero={true} />
