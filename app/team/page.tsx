@@ -87,7 +87,7 @@ const TeamSection = ({ title, members }: { title: string, members: { name: strin
 const teamData = {
     'Leads': [
         { name: 'Vishvdeep Pundir', role: 'Lead', imageUrl: '/Team/Vishvadeep.webp', linkedinUrl: 'https://www.linkedin.com/in/vishvdeep-pundir-5a783a34b?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
-        { name: 'Tannu Chaudhry', role: 'Lead', imageUrl: '/Team/Tannu.webp', linkedinUrl: 'https://www.linkedin.com/in/tannu-chaudhary-857348375?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
+        { name: 'Tannu Chaudhary', role: 'Lead', imageUrl: '/Team/Tannu.webp', linkedinUrl: 'https://www.linkedin.com/in/tannu-chaudhary-857348375?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
     ],
     'Head of Operations': [
         { name: 'Yug Jain', role: 'Head of Operations', imageUrl: '/Team/yug jain.webp', linkedinUrl: 'https://www.linkedin.com/in/yug-jain-a0707a212/' },
@@ -97,7 +97,7 @@ const teamData = {
         { name: 'Mohd Faisal', role: 'Technical Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
     ],
     'Graphics': [
-        { name: 'Tannu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+        { name: 'Tanu', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
         { name: 'Arpit Kumar Sharma', role: 'Graphics Head', imageUrl: '/Team/Arpit_Kumar_Sharma.webp', linkedinUrl: 'https://www.linkedin.com/in/arpit-kumar-sharma2008?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
     ],
     'Content': [
