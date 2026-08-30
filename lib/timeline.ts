@@ -1,5 +1,5 @@
 export const START_DATE_STR = '2026-08-17T00:00:00';
-export const END_DATE_STR = '2026-09-05T23:59:59';
+export const END_DATE_STR = '2026-08-31T23:59:59';
 
 export const getStartDate = () => new Date(START_DATE_STR);
 export const getEndDate = () => new Date(END_DATE_STR);
