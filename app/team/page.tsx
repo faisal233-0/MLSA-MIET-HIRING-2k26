@@ -94,7 +94,7 @@ const teamData = {
         { name: 'Arjun Sharma', role: 'Head of Operations', imageUrl: '/Team/Arjun.webp', linkedinUrl: 'https://www.linkedin.com/in/arjun-sharma-22444623b?utm_source=share_via&utm_content=profile&utm_medium=member_android' }
     ],
     'Technical': [
-        { name: 'Mohd Faisal', role: 'Technical Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
+        { name: 'Mo Faisal', role: 'Technical Head', imageUrl: '/Team/faisal.webp', linkedinUrl: 'https://www.linkedin.com/in/mohd-faisal-31181a2ab/' },
     ],
     'Graphics': [
         { name: 'Tanu Chauhan', role: 'Graphics Head', imageUrl: '/Team/Tanu Chauhan.webp', linkedinUrl: 'https://www.linkedin.com/in/tanu-chauhan-151584323?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
