@@ -84,7 +84,7 @@ const past: Event[] = [
 
         id: "Samaarambh",
 
-        title: "Samaarambh 3.0",
+        title: "Samaarambh 3.0  ",
 
         date: "November 22, 2025",
 
